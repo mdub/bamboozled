@@ -14,14 +14,12 @@ class BuildStatus
   end
 end
 
-class BambooServerUnavailable < StandardError; end
-
 def load_builds(bamboo_server)
   telemetry_url = "#{bamboo_server}/telemetry.action"
   telemetry_stream = begin
     open(telemetry_url)
   rescue StandardError
-    raise BambooServerUnavailable, "can't read #{telemetry_url}"
+    return []
   end
 
   builds = []
@@ -56,11 +54,7 @@ end
 require "sinatra"
 
 get "/:server_host_and_port/cc.xml" do |server_host_and_port|
-  begin
-    build_info = load_builds("http://#{server_host_and_port}")
-    content_type 'application/xml', :charset => 'utf-8'
-    generate_cctray_xml(build_info)
-  rescue BambooServerUnavailable => e
-    halt 404, e.message
-  end
+  build_info = load_builds("http://#{server_host_and_port}")
+  content_type 'application/xml'
+  generate_cctray_xml(build_info)
 end
