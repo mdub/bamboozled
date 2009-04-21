@@ -5,14 +5,21 @@ require "rubygems"
 require "hpricot"
 require "open-uri"
 
-BuildStatus = Struct.new(:label, :status, :url)
+BuildStatus ||= Struct.new(:label, :status, :url)
+
+class BambooServerUnavailable < StandardError; end
 
 def load_builds(bamboo_server)
-  telemetry_doc = Hpricot(open("#{bamboo_server}/telemetry.action"))
+  telemetry_url = "#{bamboo_server}/telemetry.action"
+  telemetry_stream = begin
+    open(telemetry_url)
+  rescue StandardError
+    raise BambooServerUnavailable, "can't read #{telemetry_url}"
+  end
 
   builds = []
 
-  telemetry_doc.search("//tr").map do | tr |
+  Hpricot(telemetry_stream).search("//tr").map do | tr |
     status = tr.attributes["class"] == "Successful" ? "Success" : "Failure"
     a = (tr.search("td/a"))[0]
     name = a.inner_html
@@ -24,12 +31,25 @@ end
 bamboo_server = "http://ci.au.lpint.net:8085"
 
 require "builder"
-builds = load_builds(bamboo_server)
 
-xml = Builder::XmlMarkup.new(:target => STDOUT, :indent => 2) 
-xml.Projects do
-  builds.each do |build|
-    xml.Project(:name => build.label, :activity => "Sleeping", :lastBuildStatus => build.status, :webUrl => build.url)
+def generate_cctray_xml(builds)
+  builder = Builder::XmlMarkup.new(:indent => 2) 
+  builder.Projects do |b|
+    builds.each do |build|
+      b.Project(:name => build.label, :activity => "Sleeping", :lastBuildStatus => build.status, :webUrl => build.url)
+    end
   end
 end
 
+require "sinatra"
+
+get "/:server_host_and_port/cc.xml" do |server_host_and_port|
+  puts "SERVER: #{server_host_and_port}"
+  begin
+    build_info = load_builds("http://#{server_host_and_port}")
+    content_type 'application/xml', :charset => 'utf-8'
+    generate_cctray_xml(build_info)
+  rescue BambooServerUnavailable => e
+    halt 404, e.message
+  end
+end
