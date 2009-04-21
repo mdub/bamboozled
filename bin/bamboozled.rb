@@ -56,7 +56,6 @@ end
 require "sinatra"
 
 get "/:server_host_and_port/cc.xml" do |server_host_and_port|
-  puts "SERVER: #{server_host_and_port}"
   begin
     build_info = load_builds("http://#{server_host_and_port}")
     content_type 'application/xml', :charset => 'utf-8'
