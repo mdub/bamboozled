@@ -5,7 +5,14 @@ require "rubygems"
 require "hpricot"
 require "open-uri"
 
-BuildStatus ||= Struct.new(:label, :status, :url)
+class BuildStatus
+  attr_reader :label, :successful, :url
+  def initialize(label, successful, url)
+    @label = label
+    @successful = successful
+    @url = url
+  end
+end
 
 class BambooServerUnavailable < StandardError; end
 
@@ -20,11 +27,11 @@ def load_builds(bamboo_server)
   builds = []
 
   Hpricot(telemetry_stream).search("//tr").map do | tr |
-    status = tr.attributes["class"] == "Successful" ? "Success" : "Failure"
+    successful = tr.attributes["class"] == "Successful"
     a = (tr.search("td/a"))[0]
     name = a.inner_html
     url = bamboo_server + a.attributes["href"]
-    BuildStatus.new(name, status, url)
+    BuildStatus.new(name, successful, url)
   end
 end
 
@@ -36,7 +43,12 @@ def generate_cctray_xml(builds)
   builder = Builder::XmlMarkup.new(:indent => 2) 
   builder.Projects do |b|
     builds.each do |build|
-      b.Project(:name => build.label, :activity => "Sleeping", :lastBuildStatus => build.status, :webUrl => build.url)
+      b.Project({
+        :name => build.label, 
+        :activity => "Sleeping", 
+        :lastBuildStatus => build.successful ? "Success" : "Failure", 
+        :webUrl => build.url
+        })
     end
   end
 end
