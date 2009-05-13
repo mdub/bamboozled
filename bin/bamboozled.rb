@@ -33,15 +33,13 @@ def load_builds(bamboo_server)
   end
 end
 
-bamboo_server = "http://ci.au.lpint.net:8085"
-
 require "builder"
 
 def generate_cctray_xml(builds)
-  builder = Builder::XmlMarkup.new(:indent => 2) 
-  builder.Projects do |b|
+  _ = Builder::XmlMarkup.new(:indent => 2) 
+  _.Projects do
     builds.each do |build|
-      b.Project({
+      _.Project({
         :name => build.label, 
         :activity => "Sleeping", 
         :lastBuildStatus => build.successful ? "Success" : "Failure", 
