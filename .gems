@@ -1,3 +1,4 @@
 rack
 sinatra
 rest-client
+hpricot
