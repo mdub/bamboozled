@@ -2,7 +2,7 @@
 
 require "rubygems"
 
-require "hpricot"
+require "nokogiri"
 require "open-uri"
 
 class BuildStatus
@@ -24,9 +24,10 @@ def load_builds(bamboo_server)
 
   builds = []
 
-  Hpricot(telemetry_stream).search("//tr").map do | tr |
+  doc = Nokogiri::HTML.parse(telemetry_stream)
+  doc.xpath("//tr").map do | tr |
     successful = tr.attributes["class"] == "Successful"
-    a = (tr.search("td/a"))[0]
+    a = (tr.xpath("td/a"))[0]
     name = a.inner_html
     url = bamboo_server + a.attributes["href"]
     BuildStatus.new(name, successful, url)
