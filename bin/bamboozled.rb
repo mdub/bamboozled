@@ -26,10 +26,10 @@ def load_builds(bamboo_server)
 
   doc = Nokogiri::HTML.parse(telemetry_stream)
   doc.xpath("//tr").map do | tr |
-    successful = tr.attributes["class"] == "Successful"
+    successful = tr["class"] == "Successful"
     a = (tr.xpath("td/a"))[0]
     name = a.inner_html
-    url = bamboo_server + a.attributes["href"]
+    url = bamboo_server + a["href"]
     BuildStatus.new(name, successful, url)
   end
 end
