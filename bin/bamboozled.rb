@@ -15,22 +15,15 @@ class BuildStatus
 end
 
 def load_builds(bamboo_server)
-  telemetry_url = "#{bamboo_server}/telemetry.action"
-  telemetry_stream = begin
-    open(telemetry_url)
-  rescue StandardError
-    return []
-  end
-
-  builds = []
-
-  doc = Nokogiri::HTML.parse(telemetry_stream)
-  doc.xpath("//tr").map do | tr |
-    successful = tr["class"] == "Successful"
-    a = (tr.xpath("td/a"))[0]
-    name = a.inner_html
-    url = bamboo_server + a["href"]
-    BuildStatus.new(name, successful, url)
+  open("#{bamboo_server}/telemetry.action") do |telemetry_stream|
+    doc = Nokogiri::HTML.parse(telemetry_stream)
+    doc.xpath("//tr").map do | tr |
+      successful = tr["class"] == "Successful"
+      a = (tr.xpath("td/a"))[0]
+      name = a.inner_html
+      url = bamboo_server + a["href"]
+      BuildStatus.new(name, successful, url)
+    end
   end
 end
 
@@ -53,7 +46,11 @@ end
 require "sinatra"
 
 get "/:server_host_and_port/cc.xml" do |server_host_and_port|
-  build_info = load_builds("http://#{server_host_and_port}")
+  build_info = begin
+    load_builds("http://#{server_host_and_port}")
+  rescue
+    []
+  end
   content_type 'application/xml'
   generate_cctray_xml(build_info)
 end
