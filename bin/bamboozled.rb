@@ -1,56 +1,62 @@
 #! /usr/bin/env ruby
 
 require "rubygems"
-
-require "nokogiri"
 require "open-uri"
 
-class BuildStatus
-  attr_reader :label, :successful, :url
-  def initialize(label, successful, url)
-    @label = label
-    @successful = successful
-    @url = url
-  end
-end
+$: << File.join(File.dirname(__FILE__), "..", "lib")
+
+require "bamboozled/feed_parser"
 
 def load_builds(bamboo_server)
-  open("#{bamboo_server}/telemetry.action") do |telemetry_stream|
-    doc = Nokogiri::HTML.parse(telemetry_stream)
-    doc.xpath("//tr").map do | tr |
-      successful = tr["class"] == "Successful"
-      a = (tr.xpath("td/a"))[0]
-      name = a.inner_html
-      url = bamboo_server + a["href"]
-      BuildStatus.new(name, successful, url)
-    end
+  open("http://#{bamboo_server}/rss/createAllBuildsRssFeed.action?feedType=rssAll") do |rss_stream|
+    Bamboozled::FeedParser.parse(rss_stream)
   end
 end
 
 require "builder"
 
 def generate_cctray_xml(builds)
-  _ = Builder::XmlMarkup.new(:indent => 2) 
+  _ = Builder::XmlMarkup.new(:indent => 2)
   _.Projects do
     builds.each do |build|
       _.Project({
-        :name => build.label, 
-        :activity => "Sleeping", 
-        :lastBuildStatus => build.successful ? "Success" : "Failure", 
+        :name => build.name,
+        :activity => "Sleeping",
+        :lastBuildStatus => build.status.to_s.capitalize,
         :webUrl => build.url
-        })
+      })
     end
   end
 end
 
 require "sinatra"
 
+get "/" do
+  erb :index
+end
+
 get "/:server_host_and_port/cc.xml" do |server_host_and_port|
   build_info = begin
-    load_builds("http://#{server_host_and_port}")
-  rescue
-    []
+    load_builds(server_host_and_port)
   end
   content_type 'application/xml'
   generate_cctray_xml(build_info)
 end
+
+__END__
+
+@@ index
+<h1>Bamboozled</h1>
+
+<p>
+  Bamboozled is a simple adapter for build results from Bamboo, making them available in CruiseControl
+  XML format.
+</p>
+
+<p>
+  Just point your CCTray or CCMenu at:
+</p>
+
+<pre>
+    <%= url("/${bamboo_host}/cc.xml") %>
+</pre>
