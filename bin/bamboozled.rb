@@ -7,10 +7,21 @@ $: << File.join(File.dirname(__FILE__), "..", "lib")
 
 require "bamboozled/feed_parser"
 
+module Enumerable
+
+  # from activesupport/lib/active_support/core_ext/array/uniq_by.rb
+  def uniq_by
+    hash, array = {}, []
+    each { |i| hash[yield(i)] ||= (array << i) }
+    array
+  end
+
+end
+
 def load_builds(bamboo_server)
   open("http://#{bamboo_server}/rss/createAllBuildsRssFeed.action?feedType=rssAll") do |rss_stream|
     Bamboozled::FeedParser.parse(rss_stream)
-  end.sort_by(&:name)
+  end.uniq_by(&:name).sort_by(&:name)
 end
 
 require "builder"
