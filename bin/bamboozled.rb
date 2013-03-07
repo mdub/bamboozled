@@ -29,7 +29,7 @@ def generate_cctray_xml(plans)
     plans.each do |build|
       _.Project({
         :name => build.name,
-        :activity => "Sleeping",
+        :activity => build.activity,
         :lastBuildStatus => build.status,
         :lastBuildTime => build.last_build_time,
         :webUrl => build.url
