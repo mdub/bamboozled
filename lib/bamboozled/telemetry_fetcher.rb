@@ -32,6 +32,9 @@ module Bamboozled
           "Sleeping"
         end
 
+        time_node = build_node.css("time").first
+        info[:last_build_time] = time_node[:datetime] if time_node
+
         ProjectInfo.with(info)
 
       end

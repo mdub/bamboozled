@@ -90,6 +90,10 @@ describe Bamboozled::TelemetryFetcher do
       ]
     end
 
+    it "returns lastBuildTime for each build" do
+      result.first.last_build_time.should eq("2013-02-21T09:37:51")
+    end
+
     it "returns the fully-qualified URL of each build" do
       result.first.url.should eq "#{bamboo_url}/browse/ALL-GOOD"
     end
