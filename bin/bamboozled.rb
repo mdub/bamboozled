@@ -1,11 +1,10 @@
 #! /usr/bin/env ruby
 
 require "rubygems"
-require "open-uri"
 
 $: << File.join(File.dirname(__FILE__), "..", "lib")
 
-require "bamboozled/feed_parser"
+require "bamboozled/telemetry_fetcher"
 
 module Enumerable
 
@@ -19,9 +18,7 @@ module Enumerable
 end
 
 def load_builds(bamboo_server)
-  open("http://#{bamboo_server}/rss/createAllBuildsRssFeed.action?feedType=rssAll") do |rss_stream|
-    Bamboozled::FeedParser.parse(rss_stream)
-  end.uniq_by(&:name).sort_by(&:name)
+  Bamboozled::TelemetryFetcher.new("http://#{bamboo_server}").fetch
 end
 
 require "builder"

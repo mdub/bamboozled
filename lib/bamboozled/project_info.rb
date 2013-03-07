@@ -2,6 +2,6 @@ require "values"
 
 module Bamboozled
 
-  ProjectInfo = Value.new(:name, :status, :url)
+  ProjectInfo = Value.new(:name, :url, :status, :activity)
 
 end
