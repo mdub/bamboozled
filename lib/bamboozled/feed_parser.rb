@@ -1,4 +1,5 @@
 require "rss"
+require "bamboozled/project_info"
 
 module Bamboozled
 
@@ -10,30 +11,26 @@ module Bamboozled
 
     def parse(rss)
       feed = RSS::Parser.parse(rss)
-      feed.items.map do |item|
-        ProjectInfo.new(item)
-      end
+      feed.items.map(&method(:extract_info))
     end
 
-    class ProjectInfo
+    private
 
-      def initialize(rss_item)
-        if rss_item.title =~ /^(\S+)-\d+ /
-          @name = $1
-        end
-        @status = case rss_item.title
-        when / was SUCCESSFUL /
-          :success
-        when / has FAILED /
-          :failure
-        end
-        @url = rss_item.link
+    def extract_info(rss_item)
+      name = if rss_item.title =~ /^(\S+)-\d+ /
+        $1
       end
-
-      attr_reader :name
-      attr_reader :status
-      attr_reader :url
-
+      status = case rss_item.title
+      when / was SUCCESSFUL /
+        :success
+      when / has FAILED /
+        :failure
+      end
+      ProjectInfo.with(
+        name: name,
+        status: status,
+        url: rss_item.link
+      )
     end
 
   end
