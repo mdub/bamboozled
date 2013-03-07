@@ -83,10 +83,10 @@ describe Bamboozled::TelemetryFetcher do
 
     it "returns the name of each build" do
       result.map(&:name).should eq [
-        "It's all good",
-        "Not so good",
-        "Who knows",
-        "Now building"
+        "Fairytales - It's all good",
+        "Fairytales - Not so good",
+        "Fairytales - Who knows",
+        "Fairytales - Now building"
       ]
     end
 
@@ -96,8 +96,8 @@ describe Bamboozled::TelemetryFetcher do
 
     def project_info_for(name)
       result.detect do |info|
-        info.name == name
-      end
+        info.name == "Fairytales - #{name}"
+      end || raise("Can't find #{name.inspect}")
     end
 
     context "for a successful build" do
