@@ -41,6 +41,7 @@ end
 require "sinatra"
 
 get "/" do
+  content_type 'text/plain'
   erb :index
 end
 
@@ -55,17 +56,18 @@ end
 __END__
 
 @@ index
-<h1>Bamboozled</h1>
 
-<p>
-  Bamboozled is a simple adapter for build results from Bamboo, making them available in CruiseControl
-  XML format.
-</p>
+                           ------------
+                            Bamboozled
+                           ------------
 
-<p>
-  Just point your CCTray or CCMenu at:
-</p>
+    Bamboozled grabs build results from an Atlassian Bamboo server,
+    and re-publishes them in "cc.xml" format, making them available
+    to tools like "CCMenu" and "CCTray".
 
-<pre>
-    <%= url("/${bamboo_host}/cc.xml") %>
-</pre>
+    Just point your CCMenu/CCTray at:
+
+      <%= url("/${bamboo_host_of_your_choice}/cc.xml") %>
+
+    where ${bamboo_host_of_your_choice} is a Bamboo host of your choice.
+
