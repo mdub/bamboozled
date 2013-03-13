@@ -1,3 +1,7 @@
-require File.expand_path("#{__FILE__}/../bin/bamboozled.rb")
+require "rubygems"
 
-run Sinatra::Application
+$: << File.join(File.dirname(__FILE__), "lib")
+
+require "bamboozled/app"
+
+run Bamboozled::App
