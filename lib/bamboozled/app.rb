@@ -13,7 +13,8 @@ module Bamboozled
       erb :index
     end
 
-    get "/:server_host_and_port/cc.xml" do |server_host_and_port|
+    get "/*/cc.xml" do
+      server_host_and_port = params[:splat].first
       build_info = begin
         load_plans(server_host_and_port)
       end
