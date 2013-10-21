@@ -6,12 +6,15 @@ module Bamboozled
 
   class TelemetryFetcher
 
-    def initialize(base_url)
-      @base_url = base_url
+    def initialize(telemetry_url, headers = {})
+      @telemetry_url = telemetry_url
+      @base_url = telemetry_url.sub(%r{/telemetry.*}, '')
+      @headers = headers
     end
 
     def fetch
-      html = open("#{base_url}/telemetry.action").read
+      p [telemetry_url, headers]
+      html = open(telemetry_url, headers).read
       doc = Nokogiri::HTML.parse(html)
       doc.css("div.build").map do |build_node|
 
@@ -42,7 +45,7 @@ module Bamboozled
 
     private
 
-    attr_reader :base_url
+    attr_reader :telemetry_url, :base_url, :headers
 
     STATUS_MAP = {
       "Successful" => "Success",

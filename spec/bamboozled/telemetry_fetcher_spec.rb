@@ -59,6 +59,7 @@ describe Bamboozled::TelemetryFetcher do
 
   let(:bamboo_host) { "bamboo.myco.com" }
   let(:bamboo_url) { "http://" + bamboo_host }
+  let(:telemetry_url) { bamboo_url + "/telemetry.action" }
 
   before do
     sham_bamboo = ShamRack.at(bamboo_host).stub
@@ -69,7 +70,7 @@ describe Bamboozled::TelemetryFetcher do
     ShamRack.unmount_all
   end
 
-  let(:fetcher) { Bamboozled::TelemetryFetcher.new(bamboo_url) }
+  let(:fetcher) { Bamboozled::TelemetryFetcher.new(telemetry_url) }
 
   describe "#fetch" do
 
