@@ -1,8 +1,15 @@
-%body
-  %ul
-    - @results.each do |result|
-      %li
-        = result.key
-        %ul
-          - result.stages.each do |stage|
-            %li #{stage.name} (#{stage.status})
+%html
+
+  %head
+    %link(rel="stylesheet"){:href => url("/styles.css")}
+
+  %body
+    %ul
+      - @results.each do |result|
+        %li.build{:class => result.status}
+          %span.name= result.key
+          %ul.stages
+            - result.stages.each do |stage|
+              %li.stage{:class => stage.status}
+                %span.name= stage.name
+                %span.status (#{stage.status})

@@ -1,0 +1,11 @@
+.successful {
+  > .name {
+    color: green;
+  }
+}
+
+.failed {
+  > .name {
+    color: red;
+  }
+}

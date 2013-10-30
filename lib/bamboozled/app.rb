@@ -30,6 +30,10 @@ module Bamboozled
       haml :"summary.html"
     end
 
+    get "/styles.css" do
+      scss :"styles.css"
+    end
+
     private
 
     def load_plans(bamboo_server, query_string)

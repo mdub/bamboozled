@@ -6,6 +6,7 @@ gem "haml"
 gem "nokogiri"
 gem "rack"
 gem "rest-client"
+gem "sass"
 gem "sinatra"
 gem "values", "~> 1.5.0"
 
