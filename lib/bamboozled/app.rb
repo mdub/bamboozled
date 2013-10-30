@@ -1,5 +1,5 @@
+require "bamboozled/build_results_parser"
 require "bamboozled/telemetry_fetcher"
-require "hashie"
 require "multi_json"
 require "sinatra/base"
 require "rest-client"
@@ -26,7 +26,7 @@ module Bamboozled
 
     get "/:server/plans/:plan" do
       url = "#{params[:server]}/rest/api/latest/result/#{params[:plan]}.json?includeAllStates=true&expand=results[0:4].result.stages"
-      @bamboo_response = MultiJson.load(RestClient.get(url))
+      @results = BuildResultsParser.parse(RestClient.get(url))
       haml :"summary.html"
     end
 

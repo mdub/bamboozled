@@ -1,8 +1,8 @@
 %body
   %ul
-    - @bamboo_response["results"]["result"].each do |result|
+    - @results.each do |result|
       %li
-        = result["key"]
+        = result.key
         %ul
-          - result["stages"]["stage"].each do |stage|
-            %li #{stage["name"]} (#{stage["state"]})
+          - result.stages.each do |stage|
+            %li #{stage.name} (#{stage.status})
