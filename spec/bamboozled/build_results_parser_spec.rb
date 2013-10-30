@@ -16,14 +16,24 @@ describe Bamboozled::BuildResultsParser do
 
     let(:results_json) { load_fixture("results-PROJECT-PLAN.json") }
 
-    it "extracts a entry for each build" do
-      expect(results.map(&:key)).to eq [
-        "PROJECT-PLAN-12",
-        "PROJECT-PLAN-11",
-        "PROJECT-PLAN-10",
-        "PROJECT-PLAN-9",
-        "PROJECT-PLAN-8"
-      ]
+    context "for each build" do
+
+      it "extracts an entry" do
+        expect(results.map(&:key)).to eq [
+          "PROJECT-PLAN-12",
+          "PROJECT-PLAN-11",
+          "PROJECT-PLAN-10",
+          "PROJECT-PLAN-9",
+          "PROJECT-PLAN-8"
+        ]
+      end
+
+      let(:first_result) { results.first }
+
+      it "extracts the status" do
+        expect(first_result.status).to eq(:failed)
+      end
+
     end
 
   end
