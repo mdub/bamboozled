@@ -1,7 +1,7 @@
 {
   "link": {
     "rel": "self",
-    "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE"
+    "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN"
   },
   "expand": "results",
   "results": {
@@ -19,14 +19,14 @@
         "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
         "link": {
           "rel": "self",
-          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-12"
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN-12"
         },
         "plan": {
           "name": "Customer Platform - AA - 2b - Pipeline",
-          "key": "CP-AAPIPELINE",
+          "key": "PROJECT-PLAN",
           "link": {
             "rel": "self",
-            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/PROJECT-PLAN"
           },
           "enabled": true,
           "type": "chain",
@@ -183,7 +183,7 @@
           "expand": "stage",
           "size": 8
         },
-        "key": "CP-AAPIPELINE-12",
+        "key": "PROJECT-PLAN-12",
         "state": "Failed"
       },
       {
@@ -200,14 +200,14 @@
         "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
         "link": {
           "rel": "self",
-          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-11"
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN-11"
         },
         "plan": {
           "name": "Customer Platform - AA - 2b - Pipeline",
-          "key": "CP-AAPIPELINE",
+          "key": "PROJECT-PLAN",
           "link": {
             "rel": "self",
-            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/PROJECT-PLAN"
           },
           "enabled": true,
           "type": "chain",
@@ -365,7 +365,7 @@
           "expand": "stage",
           "size": 8
         },
-        "key": "CP-AAPIPELINE-11"
+        "key": "PROJECT-PLAN-11"
       },
       {
         "number": 10,
@@ -380,14 +380,14 @@
         "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
         "link": {
           "rel": "self",
-          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-10"
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN-10"
         },
         "plan": {
           "name": "Customer Platform - AA - 2b - Pipeline",
-          "key": "CP-AAPIPELINE",
+          "key": "PROJECT-PLAN",
           "link": {
             "rel": "self",
-            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/PROJECT-PLAN"
           },
           "enabled": true,
           "type": "chain",
@@ -479,13 +479,13 @@
           "expand": "stage",
           "size": 3
         },
-        "key": "CP-AAPIPELINE-10",
+        "key": "PROJECT-PLAN-10",
         "state": "Successful"
       },
       {
         "number": 9,
         "state": "Unknown",
-        "key": "CP-AAPIPELINE-9",
+        "key": "PROJECT-PLAN-9",
         "stages": {
           "stage": [
             {
@@ -561,10 +561,10 @@
         "planName": "AA - 2b - Pipeline",
         "plan": {
           "name": "Customer Platform - AA - 2b - Pipeline",
-          "key": "CP-AAPIPELINE",
+          "key": "PROJECT-PLAN",
           "link": {
             "rel": "self",
-            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/PROJECT-PLAN"
           },
           "enabled": true,
           "type": "chain",
@@ -573,7 +573,7 @@
         },
         "link": {
           "rel": "self",
-          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-9"
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN-9"
         },
         "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
         "buildDuration": 0,
@@ -602,14 +602,14 @@
         "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
         "link": {
           "rel": "self",
-          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-8"
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/PROJECT-PLAN-8"
         },
         "plan": {
           "name": "Customer Platform - AA - 2b - Pipeline",
-          "key": "CP-AAPIPELINE",
+          "key": "PROJECT-PLAN",
           "link": {
             "rel": "self",
-            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/PROJECT-PLAN"
           },
           "enabled": true,
           "type": "chain",
@@ -701,7 +701,7 @@
           "expand": "stage",
           "size": 3
         },
-        "key": "CP-AAPIPELINE-8",
+        "key": "PROJECT-PLAN-8",
         "state": "Failed"
       }
     ],

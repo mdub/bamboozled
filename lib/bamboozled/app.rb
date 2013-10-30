@@ -1,6 +1,8 @@
 require "bamboozled/telemetry_fetcher"
-require "builder"
+require "hashie"
+require "multi_json"
 require "sinatra/base"
+require "rest-client"
 
 module Bamboozled
 
@@ -22,6 +24,12 @@ module Bamboozled
       builder :"cc.xml"
     end
 
+    get "/:server/plans/:plan" do
+      url = "#{params[:server]}/rest/api/latest/result/#{params[:plan]}.json?includeAllStates=true&expand=results[0:4].result.stages"
+      @bamboo_response = MultiJson.load(RestClient.get(url))
+      haml :"summary.html"
+    end
+
     private
 
     def load_plans(bamboo_server, query_string)
@@ -31,3 +39,5 @@ module Bamboozled
   end
 
 end
+
+require "bamboozled/test_fixtures"

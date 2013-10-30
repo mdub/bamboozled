@@ -1,8 +1,11 @@
 source "https://rubygems.org"
 
 gem "builder"
+gem "multi_json"
+gem "haml"
 gem "nokogiri"
 gem "rack"
+gem "rest-client"
 gem "sinatra"
 gem "values", "~> 1.5.0"
 
