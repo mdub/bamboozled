@@ -13,7 +13,6 @@ module Bamboozled
     end
 
     def fetch
-      p [telemetry_url, headers]
       html = open(telemetry_url, headers).read
       doc = Nokogiri::HTML.parse(html)
       doc.css("div.build").map do |build_node|
