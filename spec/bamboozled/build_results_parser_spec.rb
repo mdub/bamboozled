@@ -34,6 +34,38 @@ describe Bamboozled::BuildResultsParser do
         expect(first_result.status).to eq(:failed)
       end
 
+      context "for each stage" do
+
+        it "extracts an entry" do
+          expect(first_result.stages.map(&:name)).to eq [
+            "Aminate",
+            "Certify Init",
+            "Certify Warmup",
+            "Certify Test",
+            "Certify Tagging",
+            "Publish",
+            "Promote to Staging",
+            "Promote to Production"
+          ]
+        end
+
+        let(:first_result) { results.first }
+
+        it "extracts the status" do
+          expect(first_result.stages.map(&:status)).to eq [
+            :successful,
+            :successful,
+            :successful,
+            :failed,
+            :unknown,
+            :unknown,
+            :unknown,
+            :unknown
+          ]
+        end
+
+      end
+
     end
 
   end
