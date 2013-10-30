@@ -1,0 +1,713 @@
+{
+  "link": {
+    "rel": "self",
+    "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE"
+  },
+  "expand": "results",
+  "results": {
+    "result": [
+      {
+        "number": 12,
+        "vcsRevisionKey": "cf4563e57feb4b1ef1a51640ab0408829dd69a5a",
+        "buildRelativeTime": "18 minutes ago",
+        "buildDurationDescription": "6 minutes",
+        "buildDuration": 418725,
+        "buildDurationInSeconds": 418,
+        "prettyBuildCompletedTime": "Wed, 30 Oct, 03:45 PM",
+        "buildCompletedTime": "2013-10-30T15:45:30.000+11:00",
+        "prettyBuildStartedTime": "Wed, 30 Oct, 03:38 PM",
+        "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
+        "link": {
+          "rel": "self",
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-12"
+        },
+        "plan": {
+          "name": "Customer Platform - AA - 2b - Pipeline",
+          "key": "CP-AAPIPELINE",
+          "link": {
+            "rel": "self",
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+          },
+          "enabled": true,
+          "type": "chain",
+          "shortKey": "AAPIPELINE",
+          "shortName": "AA - 2b - Pipeline"
+        },
+        "planName": "AA - 2b - Pipeline",
+        "projectName": "Customer Platform",
+        "lifeCycleState": "Finished",
+        "id": 264864512,
+        "buildStartedTime": "2013-10-30T15:38:32.000+11:00",
+        "vcsRevisions": {
+          "max-result": 2,
+          "start-index": 0,
+          "size": 2
+        },
+        "buildTestSummary": "No tests found",
+        "successfulTestCount": 0,
+        "failedTestCount": 0,
+        "quarantinedTestCount": 0,
+        "continuable": false,
+        "onceOff": false,
+        "restartable": true,
+        "buildReason": "Manual build    by <a href=\"http://bamboo.enterprisey.com/browse/user/ydeng\">Yongjun Deng</a>",
+        "artifacts": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "comments": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "labels": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "jiraIssues": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "stages": {
+          "stage": [
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Aminate",
+              "description": "",
+              "id": 264896853,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Init",
+              "description": "Check Certify Env",
+              "id": 264896854,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Warmup",
+              "description": "Build AA Node with AMI to be tested",
+              "id": 264896855,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "3 jobs passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": true,
+              "manual": false,
+              "name": "Certify Test",
+              "description": "Run End-2-End Test",
+              "id": 264896856,
+              "lifeCycleState": "Finished",
+              "state": "Failed",
+              "displayClass": "Failed",
+              "displayMessage": "2 of 2 jobs failed",
+              "collapsedByDefault": false
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Tagging",
+              "description": "Tagging Certified AMI",
+              "id": 264896857,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Publish",
+              "description": "",
+              "id": 264896858,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Staging",
+              "description": "",
+              "id": 264896859,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Production",
+              "description": "",
+              "id": 264896860,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            }
+          ],
+          "max-result": 8,
+          "start-index": 0,
+          "expand": "stage",
+          "size": 8
+        },
+        "key": "CP-AAPIPELINE-12",
+        "state": "Failed"
+      },
+      {
+        "number": 11,
+        "state": "Failed",
+        "vcsRevisionKey": "cf4563e57feb4b1ef1a51640ab0408829dd69a5a",
+        "buildRelativeTime": "39 minutes ago",
+        "buildDurationDescription": "391 minutes",
+        "buildDuration": 23487193,
+        "buildDurationInSeconds": 23487,
+        "prettyBuildCompletedTime": "Wed, 30 Oct, 03:23 PM",
+        "buildCompletedTime": "2013-10-30T15:23:51.000+11:00",
+        "prettyBuildStartedTime": "Wed, 30 Oct, 02:20 PM",
+        "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
+        "link": {
+          "rel": "self",
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-11"
+        },
+        "plan": {
+          "name": "Customer Platform - AA - 2b - Pipeline",
+          "key": "CP-AAPIPELINE",
+          "link": {
+            "rel": "self",
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+          },
+          "enabled": true,
+          "type": "chain",
+          "shortKey": "AAPIPELINE",
+          "shortName": "AA - 2b - Pipeline"
+        },
+        "planName": "AA - 2b - Pipeline",
+        "projectName": "Customer Platform",
+        "lifeCycleState": "Finished",
+        "id": 264864341,
+        "buildStartedTime": "2013-10-30T14:20:00.000+11:00",
+        "vcsRevisions": {
+          "max-result": 2,
+          "start-index": 0,
+          "size": 2
+        },
+        "buildTestSummary": "No tests found",
+        "successfulTestCount": 0,
+        "failedTestCount": 0,
+        "quarantinedTestCount": 0,
+        "restartCount": 13,
+        "continuable": false,
+        "onceOff": false,
+        "restartable": true,
+        "buildReason": "Rebuilt     by <a href=\"http://bamboo.enterprisey.com/browse/user/ydeng\">Yongjun Deng</a>",
+        "artifacts": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "comments": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "labels": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "jiraIssues": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "stages": {
+          "stage": [
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Aminate",
+              "description": "",
+              "id": 264896773,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Init",
+              "description": "Check Certify Env",
+              "id": 264896774,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Warmup",
+              "description": "Build AA Node with AMI to be tested",
+              "id": 264896775,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "3 jobs passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": true,
+              "manual": false,
+              "name": "Certify Test",
+              "description": "Run End-2-End Test",
+              "id": 264896776,
+              "lifeCycleState": "Finished",
+              "state": "Failed",
+              "displayClass": "Failed",
+              "displayMessage": "2 of 2 jobs failed",
+              "collapsedByDefault": false
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Certify Tagging",
+              "description": "Tagging Certified AMI",
+              "id": 264896777,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Publish",
+              "description": "",
+              "id": 264896778,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Staging",
+              "description": "",
+              "id": 264896779,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Production",
+              "description": "",
+              "id": 264896780,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            }
+          ],
+          "max-result": 8,
+          "start-index": 0,
+          "expand": "stage",
+          "size": 8
+        },
+        "key": "CP-AAPIPELINE-11"
+      },
+      {
+        "number": 10,
+        "vcsRevisionKey": "cf4563e57feb4b1ef1a51640ab0408829dd69a5a",
+        "buildRelativeTime": "2 hours ago",
+        "buildDurationDescription": "43 minutes",
+        "buildDuration": 2607771,
+        "buildDurationInSeconds": 2607,
+        "prettyBuildCompletedTime": "Wed, 30 Oct, 02:01 PM",
+        "buildCompletedTime": "2013-10-30T14:01:44.000+11:00",
+        "prettyBuildStartedTime": "Wed, 30 Oct, 01:26 PM",
+        "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
+        "link": {
+          "rel": "self",
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-10"
+        },
+        "plan": {
+          "name": "Customer Platform - AA - 2b - Pipeline",
+          "key": "CP-AAPIPELINE",
+          "link": {
+            "rel": "self",
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+          },
+          "enabled": true,
+          "type": "chain",
+          "shortKey": "AAPIPELINE",
+          "shortName": "AA - 2b - Pipeline"
+        },
+        "planName": "AA - 2b - Pipeline",
+        "projectName": "Customer Platform",
+        "lifeCycleState": "Finished",
+        "id": 264864230,
+        "buildStartedTime": "2013-10-30T13:26:24.000+11:00",
+        "vcsRevisions": {
+          "max-result": 2,
+          "start-index": 0,
+          "size": 2
+        },
+        "buildTestSummary": "No tests found",
+        "successfulTestCount": 0,
+        "failedTestCount": 0,
+        "quarantinedTestCount": 0,
+        "continuable": false,
+        "onceOff": false,
+        "restartable": false,
+        "buildReason": "Manual build    by <a href=\"http://bamboo.enterprisey.com/browse/user/cp-build-trigger\">Build Trigger for CP</a>",
+        "artifacts": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "comments": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "labels": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "jiraIssues": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "stages": {
+          "stage": [
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Aminate",
+              "description": "",
+              "id": 264896718,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Publish",
+              "description": "",
+              "id": 264896719,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Staging",
+              "description": "",
+              "id": 264896720,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            }
+          ],
+          "max-result": 3,
+          "start-index": 0,
+          "expand": "stage",
+          "size": 3
+        },
+        "key": "CP-AAPIPELINE-10",
+        "state": "Successful"
+      },
+      {
+        "number": 9,
+        "state": "Unknown",
+        "key": "CP-AAPIPELINE-9",
+        "stages": {
+          "stage": [
+            {
+              "runnable": false,
+              "restartable": true,
+              "manual": false,
+              "name": "Aminate",
+              "description": "",
+              "id": 264896696,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Publish",
+              "description": "",
+              "id": 264896697,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Promote to Staging",
+              "description": "",
+              "id": 264896698,
+              "lifeCycleState": "NotBuilt",
+              "state": "Unknown",
+              "displayClass": "NotBuilt",
+              "displayMessage": "1 of 1 job not executed",
+              "collapsedByDefault": true
+            }
+          ],
+          "max-result": 3,
+          "start-index": 0,
+          "expand": "stage",
+          "size": 3
+        },
+        "jiraIssues": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "labels": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "comments": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "artifacts": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "buildReason": "Manual build    by <a href=\"http://bamboo.enterprisey.com/browse/user/mwilliams\">Mike Williams</a>",
+        "buildDurationInSeconds": 0,
+        "id": 264864178,
+        "lifeCycleState": "NotBuilt",
+        "projectName": "Customer Platform",
+        "planName": "AA - 2b - Pipeline",
+        "plan": {
+          "name": "Customer Platform - AA - 2b - Pipeline",
+          "key": "CP-AAPIPELINE",
+          "link": {
+            "rel": "self",
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+          },
+          "enabled": true,
+          "type": "chain",
+          "shortKey": "AAPIPELINE",
+          "shortName": "AA - 2b - Pipeline"
+        },
+        "link": {
+          "rel": "self",
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-9"
+        },
+        "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
+        "buildDuration": 0,
+        "buildDurationDescription": "Unknown",
+        "buildRelativeTime": "2 hours ago",
+        "vcsRevisionKey": "cf4563e57feb4b1ef1a51640ab0408829dd69a5a",
+        "vcsRevisions": {
+          "max-result": 2,
+          "start-index": 0,
+          "size": 2
+        },
+        "continuable": false,
+        "onceOff": false,
+        "restartable": true
+      },
+      {
+        "number": 8,
+        "vcsRevisionKey": "0fa145bd2b4d7dc232161c08e855aa055dedcf6d",
+        "buildRelativeTime": "4 hours ago",
+        "buildDurationDescription": "47 seconds",
+        "buildDuration": 47032,
+        "buildDurationInSeconds": 47,
+        "prettyBuildCompletedTime": "Wed, 30 Oct, 11:43 AM",
+        "buildCompletedTime": "2013-10-30T11:43:19.000+11:00",
+        "prettyBuildStartedTime": "Wed, 30 Oct, 11:42 AM",
+        "expand": "plan,vcsRevisions,artifacts,comments,labels,jiraIssues,stages",
+        "link": {
+          "rel": "self",
+          "href": "http://bamboo.enterprisey.com/rest/api/latest/result/CP-AAPIPELINE-8"
+        },
+        "plan": {
+          "name": "Customer Platform - AA - 2b - Pipeline",
+          "key": "CP-AAPIPELINE",
+          "link": {
+            "rel": "self",
+            "href": "http://bamboo.enterprisey.com/rest/api/latest/plan/CP-AAPIPELINE"
+          },
+          "enabled": true,
+          "type": "chain",
+          "shortKey": "AAPIPELINE",
+          "shortName": "AA - 2b - Pipeline"
+        },
+        "planName": "AA - 2b - Pipeline",
+        "projectName": "Customer Platform",
+        "lifeCycleState": "Finished",
+        "id": 264864106,
+        "buildStartedTime": "2013-10-30T11:42:32.000+11:00",
+        "vcsRevisions": {
+          "max-result": 3,
+          "start-index": 0,
+          "size": 3
+        },
+        "buildTestSummary": "No tests found",
+        "successfulTestCount": 0,
+        "failedTestCount": 0,
+        "quarantinedTestCount": 0,
+        "continuable": false,
+        "onceOff": false,
+        "restartable": true,
+        "buildReason": "Manual build    by <a href=\"http://bamboo.enterprisey.com/browse/user/mwilliams\">Mike Williams</a>",
+        "artifacts": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "comments": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "labels": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "jiraIssues": {
+          "max-result": 0,
+          "start-index": 0,
+          "size": 0
+        },
+        "stages": {
+          "stage": [
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": false,
+              "name": "Aminate",
+              "description": "",
+              "id": 264896661,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": false,
+              "manual": true,
+              "name": "Publish",
+              "description": "",
+              "id": 264896662,
+              "lifeCycleState": "Finished",
+              "state": "Successful",
+              "displayClass": "Successful",
+              "displayMessage": "1 job passed",
+              "collapsedByDefault": true
+            },
+            {
+              "runnable": false,
+              "restartable": true,
+              "manual": true,
+              "name": "Promote to Staging",
+              "description": "",
+              "id": 264896663,
+              "lifeCycleState": "Finished",
+              "state": "Failed",
+              "displayClass": "Failed",
+              "displayMessage": "1 of 1 job failed",
+              "collapsedByDefault": false
+            }
+          ],
+          "max-result": 3,
+          "start-index": 0,
+          "expand": "stage",
+          "size": 3
+        },
+        "key": "CP-AAPIPELINE-8",
+        "state": "Failed"
+      }
+    ],
+    "max-result": 25,
+    "start-index": 0,
+    "expand": "result",
+    "size": 11
+  }
+}
