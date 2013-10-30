@@ -6,11 +6,11 @@ module Bamboozled
 
   class App < Sinatra::Base
 
-    enable :inline_templates
+    set :views, File.expand_path("../templates", __FILE__)
 
     get "/" do
       content_type 'text/plain'
-      erb :index
+      erb :"index.txt"
     end
 
     get "/*/cc.xml" do
@@ -51,22 +51,3 @@ module Bamboozled
   end
 
 end
-
-__END__
-
-@@ index
-
-                           ------------
-                            Bamboozled
-                           ------------
-
-    Bamboozled grabs build results from an Atlassian Bamboo server,
-    and re-publishes them in "cc.xml" format, making them available
-    to tools like "CCMenu" and "CCTray".
-
-    Just point your CCMenu/CCTray at:
-
-      <%= url("/${bamboo_host_of_your_choice}/cc.xml") %>
-
-    where ${bamboo_host_of_your_choice} is a Bamboo host of your choice.
-
