@@ -15,12 +15,8 @@ module Bamboozled
 
     get "/*/cc.xml" do
       server_host_and_port = params[:splat].first
-      headers = {}
-      if authorization = request.env["HTTP_AUTHORIZATION"]
-        headers["Authorization"] = authorization
-      end
       build_info = begin
-        load_plans(server_host_and_port, request.query_string, headers)
+        load_plans(server_host_and_port, request.query_string)
       end
       content_type 'application/xml'
       generate_cctray_xml(build_info)
@@ -28,10 +24,9 @@ module Bamboozled
 
     private
 
-    def load_plans(bamboo_server, query_string, headers)
-      Bamboozled::TelemetryFetcher.new("http://#{bamboo_server}/telemetry.action?#{query_string}", headers).fetch
+    def load_plans(bamboo_server, query_string)
+      Bamboozled::TelemetryFetcher.new("http://#{bamboo_server}/telemetry.action?#{query_string}").fetch
     end
-
 
     def generate_cctray_xml(plans)
       _ = Builder::XmlMarkup.new(:indent => 2)
