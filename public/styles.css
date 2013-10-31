@@ -83,6 +83,19 @@ body {
   border-top: 1px solid #bbb;
 }
 
+.panel:nth-child(2) {
+  opacity: 0.8;
+}
+.panel:nth-child(3) {
+  opacity: 0.6;
+}
+.panel:nth-child(4) {
+  opacity: 0.5;
+}
+.panel:nth-child(5) {
+  opacity: 0.4;
+}
+
 .build.result > .label {
   font-weight: bold;
   font-size: 150%;
