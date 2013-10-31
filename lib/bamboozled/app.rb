@@ -11,6 +11,14 @@ module Bamboozled
 
     set :views, File.expand_path("../templates", __FILE__)
 
+    helpers do
+
+      def browse_url(key)
+        ["http:/", params[:server], "browse", key].join("/")
+      end
+
+    end
+
     get "/" do
       content_type 'text/plain'
       erb :"index.txt"

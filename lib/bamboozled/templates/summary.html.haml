@@ -6,15 +6,15 @@
 
   %body
 
-    .overlay
-
-    %h1= @plan
+    %h1
+      %a{:href => browse_url(@plan)}= @plan
 
     .row
       - @results.each do |result|
         .panel
           .build.result{:class => result.status}
-            .label ##{result.number}
+            .label
+              %a{:href => browse_url(result.key)} ##{result.number}
           - if result.started_at
             .timestamp started #{result.started_at.strftime("%a %T")}
           - result.stages.each do |stage|
