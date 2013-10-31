@@ -9,6 +9,7 @@ module Bamboozled
       MultiJson.load(json).fetch("results").fetch("result").map do |result_data|
         OpenStruct.new.tap do |result|
           result.key = result_data.fetch("key")
+          result.number = result_data.fetch("number")
           result.status = result_data.fetch("state").downcase.to_sym
           result.stages = result_data.fetch("stages").fetch("stage").map do |stage_data|
             OpenStruct.new.tap do |stage|

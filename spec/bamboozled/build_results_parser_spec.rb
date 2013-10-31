@@ -34,6 +34,10 @@ describe Bamboozled::BuildResultsParser do
         expect(first_result.status).to eq(:failed)
       end
 
+      it "extracts the number" do
+        expect(first_result.number).to eq(12)
+      end
+
       context "for each stage" do
 
         it "extracts an entry" do

@@ -17,16 +17,18 @@ module Bamboozled
     end
 
     get "/:server/cc.xml" do
-      server_host_and_port = params[:server]
+      @server = params[:server]
       @build_info = begin
-        load_plans(server_host_and_port, request.query_string)
+        load_plans(@server, request.query_string)
       end
       content_type 'application/xml'
       builder :"cc.xml"
     end
 
     get "/:server/plans/:plan" do
-      url = "#{params[:server]}/rest/api/latest/result/#{params[:plan]}.json?includeAllStates=true&expand=results[0:4].result.stages"
+      @server = params[:server]
+      @plan = params[:plan]
+      url = "#{@server}/rest/api/latest/result/#{@plan}.json?includeAllStates=true&expand=results[0:4].result.stages"
       @results = BuildResultsParser.parse(RestClient.get(url))
       haml :"summary.html"
     end

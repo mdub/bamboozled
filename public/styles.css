@@ -1,7 +1,64 @@
-.successful > .name {
-  color: green;
+* {
+  box-sizing: border-box;
 }
 
-.failed > .name {
-  color: red;
+body {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.row {
+  white-space: nowrap;
+}
+
+.build {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.5em;
+  min-width: 15em;
+  border-left: 20px solid #bbb;
+  border-top-left-radius: 10px;
+  background: #eee;
+  color: #333;
+}
+
+.build > div {
+  padding: 0.3em 0.5em;
+}
+
+.build > .number {
+  font-weight: bold;
+  font-size: 150%;
+  border-bottom: 1px solid #bbb;
+}
+
+.stage {
+  border-left: 20px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  background: #eee;
+}
+
+.successful {
+  border-color: #696;
+}
+
+.successful.build .number, .successful.stage {
+  background: #efe;
+}
+
+.unknown.stage {
+  font-style: italic;
+}
+
+.failed {
+  border-color: #f33;
+}
+
+.failed.build .number, .failed.stage {
+  background: #fee;
 }
