@@ -91,6 +91,10 @@ describe Bamboozled::TelemetryFetcher do
       ]
     end
 
+    it "returns the key for each build" do
+      result.map(&:key).should eq ["ALL-GOOD", "NOT-SO-GOOD", "HUH", "NOW-BUILDING"]
+    end
+
     it "returns lastBuildTime for each build" do
       result.first.last_build_time.should eq("2013-02-21T09:37:51")
     end

@@ -17,6 +17,10 @@ module Bamboozled
         ["http:/", params[:server], "browse", key].join("/")
       end
 
+      def summary_url(key)
+        url(["", params[:server], "plans", key].join("/"))
+      end
+
     end
 
     get "/" do

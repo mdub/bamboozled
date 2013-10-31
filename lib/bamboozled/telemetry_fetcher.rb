@@ -23,6 +23,7 @@ module Bamboozled
         info = {
           :name => "#{project_name} - #{plan_name_node.text}",
           :url => base_url + plan_name_node[:href],
+          :key => File.basename(plan_name_node[:href])
         }
 
         result_status_class = build_node.css(".result").first[:class].split.last
