@@ -4,12 +4,22 @@
 
 body {
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  background: #111;
   color: white;
+  background: black;
+  margin: 0;
+  padding: 10px;
 }
 
-h1 {
-  text-align: center;
+.overlay {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 80%, black 100%);
+  position: fixed;
+}
+
+.row {
+  white-space: nowrap;
 }
 
 .result > .label {
