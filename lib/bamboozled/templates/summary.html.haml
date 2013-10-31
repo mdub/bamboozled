@@ -12,6 +12,10 @@
         .panel
           .build.result{:class => result.status}
             .label ##{result.number}
+          - if result.started_at
+            .timestamp started #{result.started_at.strftime("%a %T")}
           - result.stages.each do |stage|
             .stage.result{:class => stage.status}
               .label= stage.name
+          - if result.finished_at
+            .timestamp finished #{result.finished_at.strftime("%a %T")}

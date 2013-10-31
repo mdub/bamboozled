@@ -12,13 +12,16 @@ h1 {
   text-align: center;
 }
 
-.row {
-  white-space: nowrap;
-}
-
 .result > .label {
   background: no-repeat 5px 50%;
   padding: 5px 28px 5px;
+}
+
+.timestamp {
+  text-align: right;
+  font-size: 75%;
+  font-weight: bold;
+  padding: 0.2em;
 }
 
 .successful.result {
@@ -62,12 +65,15 @@ h1 {
   color: #333;
 }
 
+.panel > div {
+  border-top: 1px solid #bbb;
+}
+
 .build.result > .label {
   font-weight: bold;
   font-size: 150%;
 }
 
 .stage.result {
-  border-top: 1px solid #bbb;
   padding-left: 10px;
 }
