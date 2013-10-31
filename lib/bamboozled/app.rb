@@ -42,6 +42,7 @@ module Bamboozled
       @plan = params[:plan]
       url = "#{@server}/rest/api/latest/result/#{@plan}.json?includeAllStates=true&expand=results[0:4].result.stages"
       @results = BuildResultsParser.parse(RestClient.get(url))
+      @description = @results.any? ? @results.first.description : @plan
       haml :"summary.html"
     end
 

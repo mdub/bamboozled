@@ -7,7 +7,8 @@
   %body
 
     %h1
-      %a{:href => browse_url(@plan)}= @plan
+      %a{:href => browse_url(@plan)}
+        = @description
 
     .row
       - @results.each do |result|

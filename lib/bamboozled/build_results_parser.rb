@@ -13,6 +13,7 @@ module Bamboozled
         OpenStruct.new.tap do |result|
           result.key = result_data.fetch("key")
           result.number = result_data.fetch("number")
+          result.description = result_data.fetch("plan").fetch("name")
           result.status = extract_status(result_data)
           result.started_at = parse_timestamp(result_data["buildStartedTime"])
           result.finished_at = parse_timestamp(result_data["buildCompletedTime"])
