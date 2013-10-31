@@ -9,8 +9,9 @@
 
     .row
       - @results.each do |result|
-        .build.result{:class => result.status}
-          .number ##{result.number}
+        .panel
+          .build.result{:class => result.status}
+            .label ##{result.number}
           - result.stages.each do |stage|
             .stage.result{:class => stage.status}
-              .name= stage.name
+              .label= stage.name

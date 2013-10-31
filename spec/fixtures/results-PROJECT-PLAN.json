@@ -304,7 +304,7 @@
               "lifeCycleState": "Finished",
               "state": "Failed",
               "displayClass": "Failed",
-              "displayMessage": "2 of 2 jobs failed",
+              "displayMessqage": "2 of 2 jobs failed",
               "collapsedByDefault": false
             },
             {
@@ -316,7 +316,7 @@
               "id": 264896777,
               "lifeCycleState": "NotBuilt",
               "state": "Unknown",
-              "displayClass": "NotBuilt",
+              "displayClass": "InProgress",
               "displayMessage": "1 of 1 job not executed",
               "collapsedByDefault": true
             },

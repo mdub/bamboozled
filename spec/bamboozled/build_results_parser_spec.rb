@@ -61,13 +61,44 @@ describe Bamboozled::BuildResultsParser do
             :successful,
             :successful,
             :failed,
-            :unknown,
-            :unknown,
-            :unknown,
-            :unknown
+            :notbuilt,
+            :notbuilt,
+            :notbuilt,
+            :notbuilt
           ]
         end
 
+      end
+
+    end
+
+  end
+
+  describe ".extract_status" do
+
+    def extract_status(lifecycle_state, state)
+      input = {
+        "state" => state,
+        "lifeCycleState" => lifecycle_state
+      }
+      Bamboozled::BuildResultsParser.extract_status(input)
+    end
+
+    context "usually" do
+
+      it "returns the lifeCycleState" do
+        expect(extract_status("InProgress", "Unknown")).to eq(:inprogress)
+        expect(extract_status("Pending", "Unknown")).to eq(:pending)
+        expect(extract_status("NotBuilt", "Unknown")).to eq(:notbuilt)
+      end
+
+    end
+
+    context "when build is Finished" do
+
+      it "returns the state" do
+        expect(extract_status("Finished", "Successful")).to eq(:successful)
+        expect(extract_status("Finished", "Failed")).to eq(:failed)
       end
 
     end

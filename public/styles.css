@@ -16,49 +16,58 @@ h1 {
   white-space: nowrap;
 }
 
-.build {
+.result > .label {
+  background: no-repeat 5px 50%;
+  padding: 5px 28px 5px;
+}
+
+.successful.result {
+  background-color: #efe;
+}
+
+.successful.result > .label {
+  background-image: url("images/icon-successful.png");
+}
+
+.failed.result {
+  background-color: #fdd;
+}
+
+.failed.result > .label {
+  background-image: url("images/icon-failed.png");
+}
+
+.inprogress.result > .label {
+  background: url("images/icon-building.gif") no-repeat 5px 50%;
+}
+
+.pending.result > .label {
+  background-image: url("images/icon-queued.png");
+  font-style: italic;
+}
+
+.notbuilt.result > .label {
+  font-style: italic;
+}
+
+.panel {
   display: inline-block;
+  overflow: hidden;
   vertical-align: top;
   margin: 0.5em;
   min-width: 15em;
-  border-left: 20px solid #bbb;
-  border-top-left-radius: 10px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
   background: #eee;
   color: #333;
 }
 
-.build > div {
-  padding: 0.3em 0.5em;
-}
-
-.build > .number {
+.build.result > .label {
   font-weight: bold;
   font-size: 150%;
-  border-bottom: 1px solid #bbb;
 }
 
-.stage {
-  border-left: 20px solid #bbb;
-  border-bottom: 1px solid #bbb;
-  background: #eee;
-}
-
-.successful {
-  border-color: #696;
-}
-
-.successful.build .number, .successful.stage {
-  background: #efe;
-}
-
-.unknown.stage {
-  font-style: italic;
-}
-
-.failed {
-  border-color: #f33;
-}
-
-.failed.build .number, .failed.stage {
-  background: #fee;
+.stage.result {
+  border-top: 1px solid #bbb;
+  padding-left: 10px;
 }
