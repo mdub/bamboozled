@@ -21,6 +21,10 @@ module Bamboozled
         url(["", params[:server], "plans", key].join("/"))
       end
 
+      def format_timestamp(ts)
+        ts.strftime("%a %e %b, %H:%M")
+      end
+
     end
 
     get "/" do

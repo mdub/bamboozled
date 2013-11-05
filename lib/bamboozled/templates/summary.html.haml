@@ -19,11 +19,11 @@
           - if result.started_at
             .timestamp
               started
-              %b= result.started_at.strftime("%a %H:%M")
+              %b= format_timestamp(result.started_at)
           - result.stages.each do |stage|
             .stage.result{:class => stage.status}
               .label= stage.name
           - if result.finished_at
             .timestamp
               finished
-              %b= result.finished_at.strftime("%a %H:%M")
+              %b= format_timestamp(result.finished_at)
