@@ -43,6 +43,10 @@ describe Bamboozled::BuildResultsParser do
         expect(first_result.description).to eq("Customer Platform - AA - 2b - Pipeline")
       end
 
+      it "extracts a reason" do
+        expect(first_result.reason.squeeze(" ")).to eq(%{Manual build by <a href="http://bamboo.enterprisey.com/browse/user/ydeng">Yongjun Deng</a>})
+      end
+
       it "extracts the start/finish timestamps" do
         expect(first_result.started_at).to eq(Time.parse("2013-10-30T15:38:32.000+11:00"))
         expect(first_result.finished_at).to eq(Time.parse("2013-10-30T15:45:30.000+11:00"))

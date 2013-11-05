@@ -27,6 +27,10 @@ body {
   white-space: nowrap;
 }
 
+.row > * {
+  white-space: normal;
+}
+
 .result > .label {
   background: no-repeat 5px 50%;
   padding: 5px 28px 5px;
@@ -72,7 +76,7 @@ body {
   overflow: hidden;
   vertical-align: top;
   margin: 0.5em;
-  min-width: 15em;
+  width: 15em;
   border: 1px solid #bbb;
   border-radius: 10px;
   background: #eee;

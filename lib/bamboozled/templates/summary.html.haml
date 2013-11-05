@@ -20,6 +20,7 @@
             .timestamp
               started
               %b= format_timestamp(result.started_at)
+              .reason= result.reason
           - result.stages.each do |stage|
             .stage.result{:class => stage.status}
               .label= stage.name
