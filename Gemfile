@@ -17,3 +17,7 @@ group :test do
   gem "rspec"
   gem "sham_rack"
 end
+
+group :production do
+  gem "unicorn"
+end

@@ -1,4 +1,5 @@
 .dotcloud
+.env
 .platform1*
 .powrc
 .sass-cache
