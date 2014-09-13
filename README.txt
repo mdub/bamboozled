@@ -22,6 +22,6 @@ Check out the root page. It's almost entirely useless.
 
 The fun starts when you point it towards a Bamboo server of your choice, e.g.
 
-    curl http://localhost:3456/bamboo.yourco.com/cc.cml
+    curl http://localhost:3456/bamboo.yourco.com/cc.xml
 
 Enter that URL in your CCMenu preferences, and you should see results!
