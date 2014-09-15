@@ -4,3 +4,5 @@
 .powrc
 .sass-cache
 log
+vendor/
+.bundle
