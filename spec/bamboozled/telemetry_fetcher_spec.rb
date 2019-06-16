@@ -1,4 +1,5 @@
 require "bamboozled/telemetry_fetcher"
+require "rspec/its"
 require "sham_rack"
 
 describe Bamboozled::TelemetryFetcher do
@@ -79,11 +80,11 @@ describe Bamboozled::TelemetryFetcher do
     end
 
     it "returns info for each listed build" do
-      result.should have(4).elements
+      expect(result.size).to eq(4)
     end
 
     it "returns the name of each build" do
-      result.map(&:name).should eq [
+      expect(result.map(&:name)).to eq [
         "Fairytales - It's all good",
         "Fairytales - Not so good",
         "Fairytales - Who knows",
@@ -92,15 +93,15 @@ describe Bamboozled::TelemetryFetcher do
     end
 
     it "returns the key for each build" do
-      result.map(&:key).should eq ["ALL-GOOD", "NOT-SO-GOOD", "HUH", "NOW-BUILDING"]
+      expect(result.map(&:key)).to eq ["ALL-GOOD", "NOT-SO-GOOD", "HUH", "NOW-BUILDING"]
     end
 
     it "returns lastBuildTime for each build" do
-      result.first.last_build_time.should eq("2013-02-21T09:37:51")
+      expect(result.first.last_build_time).to eq("2013-02-21T09:37:51")
     end
 
     it "returns the fully-qualified URL of each build" do
-      result.first.url.should eq "#{bamboo_url}/browse/ALL-GOOD"
+      expect(result.first.url).to eq "#{bamboo_url}/browse/ALL-GOOD"
     end
 
     def project_info_for(name)
